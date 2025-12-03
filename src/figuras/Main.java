@@ -6,6 +6,7 @@ public class Main extends javax.swing.JFrame {
     private int figure;
 
     public Main() {
+        System.out.println("Gracias por contribuir");
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
