@@ -24,15 +24,32 @@ public class Main extends javax.swing.JFrame {
         }
     }
 
-    private void btnDibujarActionPerformed(java.awt.event.ActionEvent evt) {
-        Circulo circulo;
-        circulo = new Circulo(Integer.parseInt(txtRadio.getText()));
-        txtPerimetro.setText(Float.toString(circulo.Perimetro()));
-        txtArea.setText(Float.toString(circulo.Area()));
-        circulo.drawFigure(pnlCanvas.getGraphics());
+    private void mniCuadradoActionPerformed(java.awt.event.ActionEvent evt) {
+        if (evt.getSource().equals(mniCuadrado)) {
+            figure = 1;
+            lblAltura.setVisible(false);
+            txtAltura.setVisible(false);
+            lblRadio.setText("Lado");
+        }
     }
 
-    @SuppressWarnings("unchecked")
+    private void btnDibujarActionPerformed(java.awt.event.ActionEvent evt) {
+        Circulo circulo;
+        Cuadrado cuadrado;
+        if (figure == 0) {
+            circulo = new Circulo(Integer.parseInt(txtRadio.getText()));
+            txtPerimetro.setText(Float.toString(circulo.Perimetro()));
+            txtArea.setText(Float.toString(circulo.Area()));
+            circulo.drawFigure(pnlCanvas.getGraphics());
+        } else if (figure == 1) {
+            cuadrado = new Cuadrado(Integer.parseInt(txtRadio.getText()));
+            txtPerimetro.setText(Float.toString(cuadrado.Perimetro()));
+            txtArea.setText(Float.toString(cuadrado.Area()));
+            cuadrado.drawFigure(pnlCanvas.getGraphics());
+        }
+    }
+
+        @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -226,8 +243,8 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
